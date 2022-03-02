@@ -1,0 +1,4 @@
+Use SDL_GetPerformanceCounter and PerformanceFrequency
+instead SDL_GetTicks to achieve higher precision.
+
+

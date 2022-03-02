@@ -88,7 +88,7 @@ void Engine::run()
         auto tick_t = end_t - start_t;
         auto sleep_t = _tick_delay - tick_t;
         
-        if(sleep_t < min_sleep_delay)
+        if(sleep_t <= min_sleep_delay)
             while(SDL_GetTicks64() < start_t + sleep_t);
         else SDL_Delay(sleep_t);
     }
