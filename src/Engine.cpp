@@ -1,6 +1,7 @@
 #include "Engine.hpp"
 #include <SDL2/SDL.h>
 #include <stdexcept>
+#include <queue>
 
 using std::runtime_error;
 
@@ -46,14 +47,53 @@ Engine::~Engine()
 }
 
 
+#include <iostream>
+using namespace std;
+
 void Engine::run()
 {
+    static uint64_t min_sleep_delay = [](){
+        auto test_start = SDL_GetTicks64();
+        SDL_Delay(1);
+        auto test_end = SDL_GetTicks64();
+        return test_end - test_start;
+    }();
+
+    auto last_t = SDL_GetTicks64();
+
+#ifdef ENGINE_CALCULATE_FPS
+    std::queue<uint64_t> frames;
+#endif
+
     _running = true;
     while(_running)
     {
+        auto start_t = SDL_GetTicks64();
+        auto progress = start_t - last_t;
+        last_t = start_t;
+
         poll_events();
+        tick(progress);
+        render();
+
+        #ifdef ENGINE_CALCULATE_FPS
+            auto now = SDL_GetTicks64();
+            frames.push(now);
+            while(frames.front() + 1000 < now)
+                frames.pop();
+            _fps = frames.size();
+        #endif
+
+        auto end_t = SDL_GetTicks64();
+        auto tick_t = end_t - start_t;
+        auto sleep_t = _tick_delay - tick_t;
+        
+        if(sleep_t < min_sleep_delay)
+            while(SDL_GetTicks64() < start_t + sleep_t);
+        else SDL_Delay(sleep_t);
     }
 }
+
 
 void Engine::poll_events()
 {
@@ -71,4 +111,14 @@ void Engine::poll_events()
 
         }
     }
+}
+
+void Engine::render()
+{
+
+}
+
+void Engine::tick(uint64_t ms)
+{
+
 }
