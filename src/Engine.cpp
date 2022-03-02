@@ -9,7 +9,9 @@ static const char* TITLE = "Slow Motion Warfare 2.0";
 static const int WIDTH = 800, HEIGHT = 600;
 
 
-Engine::Engine()
+Engine::Engine() :
+    _world(),
+    _camera(&_world)
 {
     if(SDL_Init(SDL_INIT_VIDEO))
         throw runtime_error("Could not init SDL2.");
@@ -115,10 +117,13 @@ void Engine::poll_events()
 
 void Engine::render()
 {
-
+    SDL_SetRenderDrawColor(_renderer, 0, 0, 0, 100);
+    SDL_RenderClear(_renderer);
+    _camera.render(_renderer);
+    SDL_RenderPresent(_renderer);
 }
 
 void Engine::tick(uint64_t ms)
 {
-
+    ms++; // tricks maybe unused
 }
