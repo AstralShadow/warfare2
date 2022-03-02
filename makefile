@@ -1,4 +1,4 @@
-NAME=my_app
+NAME=warfare
 CXX=g++
 __CXXFLAGS=-Og -g -std=c++11 \
 	-Wall -Wpedantic -Wextra \

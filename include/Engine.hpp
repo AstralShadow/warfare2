@@ -16,6 +16,11 @@ public:
 private:
     SDL_Window* _window;
     SDL_Renderer* _renderer;
+
+    bool _running;
+
+
+    void poll_events();
 };
 
 #endif // INCLUDE_ENGINE_HPP

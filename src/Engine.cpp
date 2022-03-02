@@ -48,6 +48,27 @@ Engine::~Engine()
 
 void Engine::run()
 {
-
+    _running = true;
+    while(_running)
+    {
+        poll_events();
+    }
 }
 
+void Engine::poll_events()
+{
+    SDL_Event ev;
+    while(SDL_PollEvent(&ev))
+    {
+        switch(ev.type)
+        {
+
+            case SDL_QUIT:
+            {
+                _running = false;
+                break;
+            }
+
+        }
+    }
+}
