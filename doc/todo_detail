@@ -1,4 +1,7 @@
 Use SDL_GetPerformanceCounter and PerformanceFrequency
-instead SDL_GetTicks to achieve higher precision.
+ instead SDL_GetTicks to achieve higher precision.
 
+Instead of redrawing thicker lines by painting a lot of
+ pixels a lot of times, I should modify the fill_circle
+ formula to run with 2 circles and fill only between them.
 
