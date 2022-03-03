@@ -1,6 +1,7 @@
 #ifndef INCLUDE_WORLD_HPP
 #define INCLUDE_WORLD_HPP
 
+#include <cstdint>
 #include <vector>
 #include <memory>
 using std::vector;
@@ -16,6 +17,8 @@ public:
     ~World() = default;
 
     vector<shared_ptr<Entity>> _entities;
+
+    void tick(uint64_t ms);
     
 };
 

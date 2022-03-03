@@ -1,4 +1,5 @@
 #include "Engine.hpp"
+#include "Entity.hpp"
 #include <SDL2/SDL.h>
 #include <stdexcept>
 #include <queue>
@@ -48,9 +49,6 @@ Engine::~Engine()
     SDL_Quit();
 }
 
-
-#include <iostream>
-using namespace std;
 
 void Engine::run()
 {
@@ -125,5 +123,5 @@ void Engine::render()
 
 void Engine::tick(uint64_t ms)
 {
-    ms++; // tricks maybe unused
+    _world.tick(ms);
 }

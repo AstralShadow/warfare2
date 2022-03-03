@@ -18,7 +18,7 @@ public:
 private:
     World* _world;
     SDL_FPoint _offset;
-    float _zoom = 1;
+    float _zoom = 1.0f;
 };
 
 #endif // INCLUDE_CAMERA_HPP
