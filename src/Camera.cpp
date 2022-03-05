@@ -2,6 +2,7 @@
 #include "World.hpp"
 #include "Entity.hpp"
 #include "render.hpp"
+#include "PlayerCtrl.hpp"
 #include <SDL2/SDL_render.h>
 #include <SDL2/SDL_mouse.h>
 
@@ -23,9 +24,10 @@ void Camera::render(SDL_Renderer* rnd)
         entity->render(rnd, _offset, _zoom);
 }
 
-void Camera::tick(float ms)
+void Camera::tick(float)
 {
     _world->set_mouse_state(this->mouse_state());
+    player_ctrl->set_mouse_state(this->mouse_state());
 }
 
 SDL_FPoint Camera::mouse_state() const

@@ -1,6 +1,7 @@
 #include "PlayerCtrl.hpp"
 #include "Entity.hpp"
 #include <SDL2/SDL_events.h>
+#include <cmath>
 
 shared_ptr<PlayerCtrl> player_ctrl = 
     std::make_shared<PlayerCtrl>();
@@ -20,5 +21,15 @@ void PlayerCtrl::apply
     if(state[SDL_SCANCODE_D] || state[SDL_SCANCODE_RIGHT])
         entity->_pos.x += distance;
 
+    if(_hold_m1)
+        entity->shoot();
+
+    auto& pos = entity->_pos;
+    float d_x = _mouse_state.x - pos.x;
+    float d_y = _mouse_state.y - pos.y;
+    float base = hypot(d_x, d_y);
+    
+    entity->_direction.x = d_x / base;
+    entity->_direction.y = d_y / base;
 
 }

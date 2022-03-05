@@ -9,6 +9,7 @@ shared_ptr<BulletCtrl> bullet_ctrl =
 
 void BulletCtrl::apply(Entity* entity, float distance)
 {
+    
     entity->_pos.x += entity->_direction.x * distance;
-    entity->_pos.x += entity->_direction.x * distance;
+    entity->_pos.y += entity->_direction.y * distance;
 }

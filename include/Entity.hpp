@@ -15,7 +15,7 @@ class Entity
 public:
     Entity(World*, SDL_FPoint,
            shared_ptr<Controller> = nullptr);
-    ~Entity() = default;
+    virtual ~Entity() = default;
 
     World* _world;
     shared_ptr<Controller> _controller;
@@ -26,12 +26,14 @@ public:
     float _size;
     float _speed;
 
+
     void render(SDL_Renderer* rnd,
                 SDL_FPoint offset,
                 float zoom = 1);
 
     void tick(float ms);
 
+    void shoot();
 };
 
 #endif // INCLUDE_ENTITY_HPP

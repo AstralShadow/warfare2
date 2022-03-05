@@ -1,5 +1,6 @@
 #include "Engine.hpp"
 #include "Entity.hpp"
+#include "PlayerCtrl.hpp"
 #include <SDL2/SDL.h>
 #include <stdexcept>
 #include <queue>
@@ -106,6 +107,20 @@ void Engine::poll_events()
             case SDL_QUIT:
             {
                 _running = false;
+                break;
+            }
+
+            case SDL_MOUSEBUTTONDOWN:
+            {
+                if(ev.button.button == SDL_BUTTON_LEFT)
+                    player_ctrl->set_hold_m1(true);
+                break;
+            }
+
+            case SDL_MOUSEBUTTONUP:
+            {
+                if(ev.button.button == SDL_BUTTON_LEFT)
+                    player_ctrl->set_hold_m1(false);
                 break;
             }
 

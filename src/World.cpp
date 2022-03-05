@@ -29,9 +29,10 @@ void World::tick(float ms)
 
     for(auto entity : _entities)
     {
-        auto& pos = entity->_pos;
-        int distance = hypot(mouse.x - pos.x,
-                             mouse.y - pos.y);
+        if(!entity) continue;
+        SDL_FPoint& pos = entity->_pos;
+        float distance = hypot(mouse.x - pos.x,
+                               mouse.y - pos.y);
 
         float remoteness = max(0.0f, min(1.0f,
             (distance - inner_range) / outer_range));
