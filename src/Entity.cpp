@@ -33,6 +33,7 @@ void Entity::render(SDL_Renderer* rnd,
 void Entity::tick(float ms)
 {
     _shoot_timeout -= ms;
+    _last_pos = _pos;
     if(_controller)
         _controller->apply(this, ms * _speed);
 }
