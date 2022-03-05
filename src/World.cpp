@@ -13,7 +13,10 @@ World::World() :
 {
     auto entity = make_shared<Entity>
         (this, SDL_FPoint{50, 50}, player_ctrl);
-         
+    _entities.push_back(entity);
+
+    entity = make_shared<Entity>
+        (this, SDL_FPoint{750, 550}, player_ctrl);
     _entities.push_back(entity);
 }
 
