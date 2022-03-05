@@ -34,6 +34,10 @@ public:
     void tick(float ms);
 
     void shoot();
+
+private:
+    float _shoot_timeout = 0;
+
 };
 
 #endif // INCLUDE_ENTITY_HPP

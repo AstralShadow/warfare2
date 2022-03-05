@@ -32,12 +32,16 @@ void Entity::render(SDL_Renderer* rnd,
 
 void Entity::tick(float ms)
 {
+    _shoot_timeout -= ms;
     if(_controller)
         _controller->apply(this, ms * _speed);
 }
 
 void Entity::shoot()
 {
+    if(_shoot_timeout > 0)
+        return;
+    _shoot_timeout = 200;
     auto bullet = std::make_shared<Bullet>(_world, this);
     _world->_entities.push_back(bullet);
 }
