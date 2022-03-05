@@ -9,7 +9,7 @@ class Controller
 public:
     virtual ~Controller() = default;
     
-    virtual void apply(Entity*, float ms) = 0;
+    virtual void apply(Entity*, float distance) = 0;
 
 protected:
     Controller() = default;

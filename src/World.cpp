@@ -1,6 +1,6 @@
 #include "World.hpp"
 #include "Entity.hpp"
-#include "KeyboardController.hpp"
+#include "KeyboardCtrl.hpp"
 #include <memory.h>
 #include <cmath>
 #include <SDL2/SDL_mouse.h>
@@ -12,7 +12,7 @@ World::World()
 {
     auto entity = make_shared<Entity>
         (this, SDL_FPoint{50, 50},
-         make_shared<KeyboardController>());
+         make_shared<KeyboardCtrl>());
     _entities.push_back(entity);
 }
 

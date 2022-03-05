@@ -17,15 +17,6 @@ public:
            shared_ptr<Controller> = nullptr);
     ~Entity() = default;
 
-    void render(SDL_Renderer* rnd,
-                SDL_FPoint offset,
-                float zoom = 1);
-
-    void tick(float ms);
-
-    SDL_FPoint& pos() { return _pos; }
-
-private:
     World* _world;
     shared_ptr<Controller> _controller;
 
@@ -33,6 +24,13 @@ private:
     SDL_Color _color;
     float _size;
     float _speed;
+
+    void render(SDL_Renderer* rnd,
+                SDL_FPoint offset,
+                float zoom = 1);
+
+    void tick(float ms);
+
 };
 
 #endif // INCLUDE_ENTITY_HPP
