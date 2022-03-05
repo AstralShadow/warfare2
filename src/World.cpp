@@ -28,7 +28,7 @@ void World::tick(float ms)
 {
     auto& mouse = _mouse_state;
     float inner_range = 100;
-    float outer_range = 100;
+    float outer_range = 150;
 
     for(auto entity : _entities)
     {

@@ -8,6 +8,7 @@ using std::shared_ptr;
 struct SDL_Renderer;
 class Controller;
 class World;
+class Camera;
 
 
 class Entity
@@ -28,9 +29,7 @@ public:
     float _speed;
 
 
-    void render(SDL_Renderer* rnd,
-                SDL_FPoint offset,
-                float zoom = 1);
+    virtual void render(SDL_Renderer*, Camera*);
 
     void tick(float ms);
 

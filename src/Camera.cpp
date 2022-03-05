@@ -20,7 +20,7 @@ void Camera::render(SDL_Renderer* rnd)
     auto screen = get_output_size(rnd);
 
     for(auto entity : _world->_entities)
-        entity->render(rnd, _offset, _zoom);
+        entity->render(rnd, this);
 
     render_mouse(rnd);
 }
@@ -31,7 +31,7 @@ void Camera::render_mouse(SDL_Renderer* rnd)
     SDL_GetMouseState(&x, &y);
 
     float inner_range = 100;
-    float outer_range = 100;
+    float outer_range = 150;
     
     SDL_SetRenderDrawColor(rnd, 255, 255, 255, 255);
     render_draw_circle(rnd, {x, y}, inner_range * _zoom);
