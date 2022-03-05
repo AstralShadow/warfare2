@@ -26,7 +26,7 @@ void Entity::render(SDL_Renderer* rnd,
     render_fill_circle(rnd, pos, _size * zoom);
 }
 
-void Entity::tick(uint64_t milliseconds)
+void Entity::tick(float milliseconds)
 {
     if(_controller)
         _controller->apply(this, milliseconds);

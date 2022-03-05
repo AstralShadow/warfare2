@@ -21,7 +21,7 @@ public:
                 SDL_FPoint offset,
                 float zoom = 1);
 
-    void tick(uint64_t ms);
+    void tick(float ms);
 
     SDL_FPoint& pos() { return _pos; }
 

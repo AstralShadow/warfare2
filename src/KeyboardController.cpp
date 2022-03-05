@@ -4,7 +4,7 @@
 
 
 void KeyboardController::apply
-    (Entity* entity, uint64_t ms)
+    (Entity* entity, float ms)
 {
     static auto* state = SDL_GetKeyboardState(nullptr);
     

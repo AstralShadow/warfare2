@@ -14,7 +14,7 @@ World::World()
     _entities.push_back(entity);
 }
 
-void World::tick(uint64_t ms)
+void World::tick(float ms)
 {
     for(auto entity : _entities)
         entity->tick(ms);

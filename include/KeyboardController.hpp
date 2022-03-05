@@ -10,7 +10,7 @@ public:
     KeyboardController() = default;
     virtual ~KeyboardController() = default;
     
-    void apply(Entity*, uint64_t ms);
+    void apply(Entity*, float ms);
 
 };
 
