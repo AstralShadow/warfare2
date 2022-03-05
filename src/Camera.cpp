@@ -3,6 +3,7 @@
 #include "Entity.hpp"
 #include "render.hpp"
 #include <SDL2/SDL_render.h>
+#include <SDL2/SDL_mouse.h>
 
 
 Camera::Camera(World* world) :
@@ -22,4 +23,18 @@ void Camera::render(SDL_Renderer* rnd)
         entity->render(rnd, _offset, _zoom);
 }
 
+void Camera::tick(float ms)
+{
+    _world->set_mouse_state(this->mouse_state());
+}
+
+SDL_FPoint Camera::mouse_state() const
+{
+    int x, y;
+    SDL_GetMouseState(&x, &y);
+    return {
+        x / _zoom + _offset.x,
+        y / _zoom + _offset.y
+    };
+}
 

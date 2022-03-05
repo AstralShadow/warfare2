@@ -1,9 +1,9 @@
 #ifndef INCLUDE_ENGINE_HPP
 #define INCLUDE_ENGINE_HPP
 
-#include <cstdint>
 #define ENGINE_CALCULATE_FPS true
 
+#include <cstdint>
 #include "World.hpp"
 #include "Camera.hpp"
 

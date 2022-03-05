@@ -8,7 +8,8 @@
 using std::make_shared;
 
 
-World::World()
+World::World() :
+    _mouse_state{0, 0}
 {
     auto entity = make_shared<Entity>
         (this, SDL_FPoint{50, 50},
@@ -22,15 +23,15 @@ using namespace std;
 
 void World::tick(float ms)
 {
-    int x, y;
-    SDL_GetMouseState(&x, &y);
+    auto& mouse = _mouse_state;
     float outer_range = 100;
     float inner_range = 100;
 
     for(auto entity : _entities)
     {
-        auto& pos = entity->pos();
-        int distance = hypot(x - pos.x, y - pos.y);
+        auto& pos = entity->_pos;
+        int distance = hypot(mouse.x - pos.x,
+                             mouse.y - pos.y);
 
         float remoteness = max(0.0f, min(1.0f,
             (distance - inner_range) / outer_range));

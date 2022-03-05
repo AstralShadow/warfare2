@@ -123,5 +123,6 @@ void Engine::render()
 
 void Engine::tick(uint64_t ms)
 {
+    _camera.tick(ms);
     _world.tick(ms);
 }
