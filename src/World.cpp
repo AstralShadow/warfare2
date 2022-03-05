@@ -1,6 +1,6 @@
 #include "World.hpp"
 #include "Entity.hpp"
-#include "KeyboardCtrl.hpp"
+#include "PlayerCtrl.hpp"
 #include <memory.h>
 #include <cmath>
 #include <SDL2/SDL_mouse.h>
@@ -12,8 +12,8 @@ World::World() :
     _mouse_state{0, 0}
 {
     auto entity = make_shared<Entity>
-        (this, SDL_FPoint{50, 50},
-         make_shared<KeyboardCtrl>());
+        (this, SDL_FPoint{50, 50}, player_ctrl);
+         
     _entities.push_back(entity);
 }
 

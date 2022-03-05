@@ -1,9 +1,12 @@
-#include "KeyboardCtrl.hpp"
+#include "PlayerCtrl.hpp"
 #include "Entity.hpp"
 #include <SDL2/SDL_events.h>
 
+shared_ptr<PlayerCtrl> player_ctrl = 
+    std::make_shared<PlayerCtrl>();
 
-void KeyboardCtrl::apply
+
+void PlayerCtrl::apply
     (Entity* entity, float distance)
 {
     static auto* state = SDL_GetKeyboardState(nullptr);

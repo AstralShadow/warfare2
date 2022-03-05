@@ -21,6 +21,7 @@ public:
     shared_ptr<Controller> _controller;
 
     SDL_FPoint _pos;
+    SDL_FPoint _direction;
     SDL_Color _color;
     float _size;
     float _speed;

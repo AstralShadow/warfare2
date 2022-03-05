@@ -9,7 +9,8 @@ Entity::Entity(World* world, SDL_FPoint pos,
     _world(world),
     _controller(ctrl),
     _pos(pos),
-    _color{0, 127, 0, 0},
+    _direction{0, 0},
+    _color{0, 127, 0, 255},
     _size(16),
     _speed(0.3)
 { }
