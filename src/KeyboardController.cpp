@@ -9,13 +9,13 @@ void KeyboardController::apply
     static auto* state = SDL_GetKeyboardState(nullptr);
     
     if(state[SDL_SCANCODE_W] || state[SDL_SCANCODE_UP])
-        entity->pos().y -= 5;
+        entity->pos().y -= ms;
     if(state[SDL_SCANCODE_S] || state[SDL_SCANCODE_DOWN])
-        entity->pos().y += 5;
+        entity->pos().y += ms;
     if(state[SDL_SCANCODE_A] || state[SDL_SCANCODE_LEFT])
-        entity->pos().x -= 5;
+        entity->pos().x -= ms;
     if(state[SDL_SCANCODE_D] || state[SDL_SCANCODE_RIGHT])
-        entity->pos().x += 5;
+        entity->pos().x += ms;
 
 
 }

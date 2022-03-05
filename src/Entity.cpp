@@ -10,7 +10,8 @@ Entity::Entity(World* world, SDL_FPoint pos,
     _controller(ctrl),
     _pos(pos),
     _color{0, 127, 0, 0},
-    _size(16)
+    _size(16),
+    _speed(0.3)
 { }
 
 
@@ -29,5 +30,5 @@ void Entity::render(SDL_Renderer* rnd,
 void Entity::tick(float milliseconds)
 {
     if(_controller)
-        _controller->apply(this, milliseconds);
+        _controller->apply(this, milliseconds * _speed);
 }

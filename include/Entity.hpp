@@ -32,6 +32,7 @@ private:
     SDL_FPoint _pos;
     SDL_Color _color;
     float _size;
+    float _speed;
 };
 
 #endif // INCLUDE_ENTITY_HPP
