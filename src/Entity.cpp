@@ -4,6 +4,7 @@
 #include "Bullet.hpp"
 #include "render.hpp"
 #include <SDL2/SDL_render.h>
+#include <algorithm>
 
 
 Entity::Entity(World* world, SDL_FPoint pos,
@@ -45,4 +46,9 @@ void Entity::shoot()
     _shoot_timeout = 200;
     auto bullet = std::make_shared<Bullet>(_world, this);
     _world->_entities.push_back(bullet);
+}
+
+void Entity::remove()
+{
+    _world->remove(this);
 }

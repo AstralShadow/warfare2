@@ -43,3 +43,16 @@ void World::tick(float ms)
         entity->tick(ms * (1 - remoteness));
     }
 }
+
+void World::remove(Entity* entity)
+{
+    auto itr = _entities.begin();
+    while(itr != _entities.end() && itr->get() != entity)
+        itr++;
+
+    if(itr == _entities.end())
+        return;
+    
+    std::swap(*itr, _entities.back());
+    _entities.pop_back();
+}

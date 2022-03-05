@@ -22,6 +22,8 @@ public:
     void tick(float ms);
     void set_mouse_state(SDL_FPoint state)
         { _mouse_state = state; }
+
+    void remove(Entity*);
     
 private:
     SDL_FPoint _mouse_state;

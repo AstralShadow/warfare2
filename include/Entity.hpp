@@ -36,6 +36,8 @@ public:
 
     void shoot();
 
+    void remove();
+
 private:
     float _shoot_timeout = 0;
 
