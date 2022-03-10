@@ -8,6 +8,10 @@ Soldiers / Entities [done]
 Bullets [done]
  Collisions
 
-Walls / Obstacles
+Walls / Obstacles [done]
  Collisions
-
+  With point [done]
+  Overlapping [done]
+  With line
+  With vector
+   returning collision position

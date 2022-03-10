@@ -34,7 +34,7 @@ public:
     virtual bool intersects(
         const float* x1, const float* y1,
         const float* x2, const float* y2,
-        float* int_x = null, float* int_y = null
+        float* int_x = nullptr, float* int_y = nullptr
     ) const = 0;
 
 
