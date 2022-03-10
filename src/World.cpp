@@ -40,7 +40,7 @@ void World::tick(float ms)
         float remoteness = max(0.0f, min(1.0f,
             (distance - inner_range) / outer_range));
 
-        entity->tick(ms * (1 - remoteness));
+        entity->tick(ms * (1 - remoteness * 0.995));
     }
 }
 
