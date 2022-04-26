@@ -9,6 +9,8 @@ Bullets [done]
  Collisions
 
 Walls / Obstacles [done]
+ Rect [done]
+  rotation
  Collisions
   With point [done]
   Overlapping [done]

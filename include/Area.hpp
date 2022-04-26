@@ -27,14 +27,23 @@ public:
 
 
     virtual bool contains(SDL_FPoint const&) const = 0;
-    virtual bool intersects(
-        float* x1, float* y1,
-        float* x2, float* y2
+    virtual bool intersects( // Line ax + b = y
+        const float* a,
+        const float* b
     ) const = 0;
-    virtual bool intersects(
+//    virtual bool intersects( // Line ax2 + bx + c = y
+//        const float* a,
+//        const float* b,
+//        const float* c
+//    ) const = 0;
+    virtual bool intersects( // Segment
+        const float* x1, const float* y1,
+        const float* x2, const float* y2
+    ) const = 0;
+    virtual bool intersects( // Vector
         const float* x1, const float* y1,
         const float* x2, const float* y2,
-        float* int_x = nullptr, float* int_y = nullptr
+        float* int_x, float* int_y
     ) const = 0;
 
 
